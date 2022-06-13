@@ -26,8 +26,9 @@ export default {
 <style scoped>
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 20px;
+  gap: 2rem;
 }
 </style>
