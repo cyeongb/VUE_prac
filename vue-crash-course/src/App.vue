@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>HELLO WORLD</h1>
+    <Header title="TASK TRACKER" />
   </div>
 </template>
 
@@ -13,4 +13,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.btn {
+  border: none;
+  /* background-color: rgb(163, 17, 17); */
+  padding: 0.75rem;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 0.6rem;
+  font-size: 15px;
+  cursor:pointer;
+}
+</style>
