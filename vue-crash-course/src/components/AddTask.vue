@@ -34,7 +34,7 @@ export default {
         return;
       }
       const newTask = {
-        id: Math.floor(Math.random() * 10000),
+        // id: Math.floor(Math.random() * 10000), // id는 json server에 자동으로 생성
         title: this.title,
         day: this.day,
         reminder: this.reminder,
@@ -84,5 +84,9 @@ export default {
 .form-control-check input {
   flex: 2;
   height: 20px;
+}
+
+.btn-block {
+  background-color: rgb(95, 38, 140);
 }
 </style>

@@ -28,16 +28,30 @@ export default {
     };
   },
   methods: {
-    deleteTask(id) {
+
+    //일정 삭제
+     deleteTask(id) {
       this.tasks = this.tasks.filter((task) => task.id !== id);
     },
+
+    //알림
     toggleReminder(id) {
       this.tasks = this.tasks.map((task) =>
         task.id === id ? { ...task, reminder: !task.reminder } : task
       );
     },
-    addTask(task) {
-      this.tasks = [...this.tasks, task];
+
+    //일정 추가
+    async addTask(task) {
+      const res = await fetch("api/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(task),
+      });
+
+      const data = await res.json();
+
+      this.tasks = [...this.tasks, data];
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
@@ -45,7 +59,16 @@ export default {
 
     //데이터 가져오기
     async fetchData() {
-      const res = await fetch("http://localhost:5000/tasks");
+      // api proxy 사용
+      const res = await fetch("api/tasks");
+
+      const data = await res.json();
+      return data;
+    },
+
+    // 한 task 가져오기
+    async fetchTask(id) {
+      const res = await fetch(`api/tasks/${id}`);
 
       const data = await res.json();
       return data;
