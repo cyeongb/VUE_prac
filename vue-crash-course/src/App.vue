@@ -37,13 +37,13 @@ export default {
     this.tasks = [
       {
         id: 1,
-        text: "목 병원가보기",
+        title: "목 병원가보기",
         day: "2022년 6월 14일 14:00",
         reminder: true,
       },
       {
         id: 2,
-        text: "점심먹을 식재료 사러가기",
+        title: "점심먹을 식재료 사러가기",
         day: "2022년 6월 13일 18:00",
         reminder: false,
       },

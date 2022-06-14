@@ -1,6 +1,6 @@
 <template>
   <button @click="onClick()" class="btn" :style="{ backgroundColor: color }">
-    {{ text }}
+    {{ btnText }}
   </button>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: "Button",
   props: {
-    text: {
+    btnText: {
       type: String,
       default: "",
     },

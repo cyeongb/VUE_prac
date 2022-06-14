@@ -2,7 +2,7 @@
   <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>할일 추가</label>
-      <input type="text" name="task" v-model="task" placeholder="할일 추가하기" />
+      <input type="text" name="title" v-model="title" placeholder="할일 추가하기" />
     </div>
     <div class="form-control">
       <label>일정</label>
@@ -21,7 +21,7 @@ export default {
   name: "AddTask",
   data() {
     return {
-      task: "",
+      title: "",
       day: "",
       reminder: false,
     };
@@ -29,13 +29,13 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      if (!this.task) {
+      if (!this.title) {
         alert("할일을 추가해 주세요");
         return;
       }
       const newTask = {
         id: Math.floor(Math.random() * 10000),
-        task: this.task,
+        title: this.title,
         day: this.day,
         reminder: this.reminder,
       };
@@ -44,7 +44,7 @@ export default {
       this.$emit("add-task", newTask);
 
       //초기화
-      this.task = "";
+      this.title = "";
       this.day = "";
       this.reminder = false;
     },
@@ -64,7 +64,7 @@ export default {
   display: block;
 }
 .form-control input {
-  width: 185%;
+  width: 98%;
   height: 40px;
   margin: 5px;
   padding: 3px 7px;
