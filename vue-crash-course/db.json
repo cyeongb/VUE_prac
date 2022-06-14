@@ -16,7 +16,7 @@
       "id": 3,
       "title": "여행가기",
       "day": "2022년 6월 17일 09:30",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": 2301,
@@ -29,12 +29,6 @@
       "title": "커피먹기",
       "day": "2022년6월15일 14:00",
       "reminder": false
-    },
-    {
-      "title": "정말??",
-      "day": "ㅇㅇㅇㅇ",
-      "reminder": false,
-      "id": 6597
     }
   ]
 }
