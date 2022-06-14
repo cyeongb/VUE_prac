@@ -6,8 +6,8 @@
       :btnText="showAddTask ? '닫기' : '일정추가'"
       :color="showAddTask ? 'gray' : 'rgb(95, 38, 140)'"
     />
-    <Button btnText="수정" color="rgb(54, 32, 176)" />
-    <Button btnText="삭제" color="rgb(163, 17, 17)" />
+    <!-- <Button btnText="수정" color="rgb(54, 32, 176)" /> -->
+    <!-- <Button btnText="삭제" color="rgb(163, 17, 17)" /> -->
   </header>
 </template>
 

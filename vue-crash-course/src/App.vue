@@ -9,6 +9,9 @@
       <AddTask @add-task="addTask" />
     </div>
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
+
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
@@ -16,10 +19,11 @@
 import Header from "./components/Header.vue";
 import Tasks from "./components/Tasks.vue";
 import AddTask from "./components/AddTask.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
-  components: { Header, Tasks, AddTask },
+  components: { Header, Tasks, AddTask, Footer },
   data() {
     return {
       tasks: [],
@@ -53,7 +57,7 @@ export default {
         body: JSON.stringify(updateTask),
       });
 
-      const data =await res.json();
+      const data = await res.json();
 
       this.tasks = this.tasks.map((task) =>
         task.id === id ? { ...task, reminder: data.reminder } : task
