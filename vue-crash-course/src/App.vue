@@ -42,23 +42,18 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
+
+    //데이터 가져오기
+    async fetchData() {
+      const res = await fetch("http://localhost:5000/tasks");
+
+      const data = await res.json();
+      return data;
+    },
   },
 
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        title: "목 병원가보기",
-        day: "2022년 6월 14일 14:00",
-        reminder: true,
-      },
-      {
-        id: 2,
-        title: "점심먹을 식재료 사러가기",
-        day: "2022년 6월 13일 18:00",
-        reminder: false,
-      },
-    ];
+  async created() {
+    this.tasks = await this.fetchData();
   },
 };
 </script>
