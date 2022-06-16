@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="root">
+        <span>{{first}}</span> x <span>{{second}}</span>는??
+        <br />
+        <form v-on:submit="onSubmitForm">
+            <!-- v-model : 해당 이름의 data 값과 연결 -->
+            <!-- ref : 직접 dom 태그에 접근해야 할때  -->
+            <input type="number" v-model="input" ref="answer" />
+            <button type="submit">답 입력</button>
+        </form>
+        <div id="result">{{result}}</div>
+        <div v-if="result">맞은 답들</div>
+        <div v-if="result">{{results}}</div>
+
+
+
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#root',
+            data: {
+                first: Math.ceil(Math.random() * 9), // 입력값1
+                second: Math.ceil(Math.random() * 9), //입력값2
+                result: '', //결과
+                input: '', //인풋값
+                results: []
+            },
+            methods: {
+                onSubmitForm(e) {
+                    e.preventDefault();
+                    if (this.first * this.second === parseInt(this.input)) {
+                        this.result = '딩동댕'
+                        this.results.push(this.input)
+                        this.first = Math.ceil(Math.random() * 9);
+                        this.second = Math.ceil(Math.random() * 9);
+                        this.input = ''
+                        this.$refs.answer.focus();
+                    } else {
+                        this.result = "땡!"
+                        this.input = ''
+                        this.$refs.answer.focus();
+
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
